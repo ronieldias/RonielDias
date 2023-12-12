@@ -11,7 +11,7 @@ using RonielDias.Models;
 namespace RonielDias.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20231212171229_InitialCreate")]
+    [Migration("20231212203717_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

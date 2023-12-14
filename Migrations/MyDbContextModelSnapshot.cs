@@ -25,6 +25,12 @@ namespace RonielDias.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Cpf")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nascimento")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Nome")
                         .HasColumnType("longtext");
 
@@ -39,7 +45,7 @@ namespace RonielDias.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("NotaVendaId")
+                    b.Property<int?>("NotaDeVendaId")
                         .HasColumnType("int");
 
                     b.Property<double>("Percentual")
@@ -56,7 +62,7 @@ namespace RonielDias.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NotaVendaId");
+                    b.HasIndex("NotaDeVendaId");
 
                     b.HasIndex("ProdutoId");
 
@@ -80,7 +86,7 @@ namespace RonielDias.Migrations
                     b.ToTable("Marcas");
                 });
 
-            modelBuilder.Entity("RonielDias.Models.NotaVenda", b =>
+            modelBuilder.Entity("RonielDias.Models.NotaDeVenda", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -165,11 +171,14 @@ namespace RonielDias.Migrations
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("RonielDias.Models.TipoPagamento", b =>
+            modelBuilder.Entity("RonielDias.Models.TipoDePagamento", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("CpfDoCobrado")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
@@ -181,16 +190,16 @@ namespace RonielDias.Migrations
                     b.Property<string>("NomeDoCobrado")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("NotaVendaId")
+                    b.Property<int?>("NotaDeVendaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NotaVendaId");
+                    b.HasIndex("NotaDeVendaId");
 
                     b.ToTable("TiposPagamentos");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("TipoPagamento");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("TipoDePagamento");
                 });
 
             modelBuilder.Entity("RonielDias.Models.Transportadora", b =>
@@ -223,7 +232,7 @@ namespace RonielDias.Migrations
 
             modelBuilder.Entity("RonielDias.Models.PagamentoComCartao", b =>
                 {
-                    b.HasBaseType("RonielDias.Models.TipoPagamento");
+                    b.HasBaseType("RonielDias.Models.TipoDePagamento");
 
                     b.Property<string>("Bandeira")
                         .HasColumnType("longtext");
@@ -236,7 +245,7 @@ namespace RonielDias.Migrations
 
             modelBuilder.Entity("RonielDias.Models.PagamentoComCheque", b =>
                 {
-                    b.HasBaseType("RonielDias.Models.TipoPagamento");
+                    b.HasBaseType("RonielDias.Models.TipoDePagamento");
 
                     b.Property<int>("Banco")
                         .HasColumnType("int");
@@ -249,9 +258,9 @@ namespace RonielDias.Migrations
 
             modelBuilder.Entity("RonielDias.Models.Item", b =>
                 {
-                    b.HasOne("RonielDias.Models.NotaVenda", null)
+                    b.HasOne("RonielDias.Models.NotaDeVenda", null)
                         .WithMany("Items")
-                        .HasForeignKey("NotaVendaId");
+                        .HasForeignKey("NotaDeVendaId");
 
                     b.HasOne("RonielDias.Models.Produto", "Produto")
                         .WithMany()
@@ -262,7 +271,7 @@ namespace RonielDias.Migrations
                     b.Navigation("Produto");
                 });
 
-            modelBuilder.Entity("RonielDias.Models.NotaVenda", b =>
+            modelBuilder.Entity("RonielDias.Models.NotaDeVenda", b =>
                 {
                     b.HasOne("RonielDias.Models.Cliente", "Cliente")
                         .WithMany()
@@ -308,11 +317,11 @@ namespace RonielDias.Migrations
                     b.Navigation("Marca");
                 });
 
-            modelBuilder.Entity("RonielDias.Models.TipoPagamento", b =>
+            modelBuilder.Entity("RonielDias.Models.TipoDePagamento", b =>
                 {
-                    b.HasOne("RonielDias.Models.NotaVenda", null)
-                        .WithMany("TipoPagamentos")
-                        .HasForeignKey("NotaVendaId");
+                    b.HasOne("RonielDias.Models.NotaDeVenda", null)
+                        .WithMany("TipoDePagamentos")
+                        .HasForeignKey("NotaDeVendaId");
                 });
 
             modelBuilder.Entity("RonielDias.Models.Marca", b =>
@@ -320,11 +329,11 @@ namespace RonielDias.Migrations
                     b.Navigation("Produtos");
                 });
 
-            modelBuilder.Entity("RonielDias.Models.NotaVenda", b =>
+            modelBuilder.Entity("RonielDias.Models.NotaDeVenda", b =>
                 {
                     b.Navigation("Items");
 
-                    b.Navigation("TipoPagamentos");
+                    b.Navigation("TipoDePagamentos");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RonielDias.Models
 {
-    public class NotaVenda
+    public class NotaDeVenda
     {
         [Display(Name= "Código")]
         public int Id {get; set;}
@@ -38,6 +38,6 @@ namespace RonielDias.Models
         [Display(Name= "Itens")]
         public virtual ICollection<Item>? Items {get;set;}
         [Display(Name= "Tipos de Pagamento")]
-        public virtual ICollection<TipoPagamento>? TipoPagamentos {get;set;}
+        public virtual ICollection<TipoDePagamento>? TipoDePagamentos {get;set;}
     }
 }

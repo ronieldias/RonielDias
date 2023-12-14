@@ -54,7 +54,7 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Banco,NomeDoBanco,Id,NomeDoCobrado,InformacoesAdicionais")] PagamentoComCheque pagamentoComCheque)
+        public async Task<IActionResult> Create([Bind("Banco,NomeDoBanco,Id,NomeDoCobrado,CpfDoCobrado,InformacoesAdicionais")] PagamentoComCheque pagamentoComCheque)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Banco,NomeDoBanco,Id,NomeDoCobrado,InformacoesAdicionais")] PagamentoComCheque pagamentoComCheque)
+        public async Task<IActionResult> Edit(int id, [Bind("Banco,NomeDoBanco,Id,NomeDoCobrado,CpfDoCobrado,InformacoesAdicionais")] PagamentoComCheque pagamentoComCheque)
         {
             if (id != pagamentoComCheque.Id)
             {

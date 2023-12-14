@@ -20,6 +20,10 @@ namespace RonielDias.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Cpf = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Nascimento = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -170,14 +174,14 @@ namespace RonielDias.Migrations
                     Percentual = table.Column<double>(type: "double", nullable: false),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     ProdutoId = table.Column<int>(type: "int", nullable: false),
-                    NotaVendaId = table.Column<int>(type: "int", nullable: true)
+                    NotaDeVendaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Itens", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Itens_NotasVendas_NotaVendaId",
-                        column: x => x.NotaVendaId,
+                        name: "FK_Itens_NotasVendas_NotaDeVendaId",
+                        column: x => x.NotaDeVendaId,
                         principalTable: "NotasVendas",
                         principalColumn: "Id");
                     table.ForeignKey(
@@ -197,11 +201,13 @@ namespace RonielDias.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     NomeDoCobrado = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    CpfDoCobrado = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     InformacoesAdicionais = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Discriminator = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NotaVendaId = table.Column<int>(type: "int", nullable: true),
+                    NotaDeVendaId = table.Column<int>(type: "int", nullable: true),
                     NumeroDoCartao = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Bandeira = table.Column<string>(type: "longtext", nullable: true)
@@ -214,17 +220,17 @@ namespace RonielDias.Migrations
                 {
                     table.PrimaryKey("PK_TiposPagamentos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TiposPagamentos_NotasVendas_NotaVendaId",
-                        column: x => x.NotaVendaId,
+                        name: "FK_TiposPagamentos_NotasVendas_NotaDeVendaId",
+                        column: x => x.NotaDeVendaId,
                         principalTable: "NotasVendas",
                         principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Itens_NotaVendaId",
+                name: "IX_Itens_NotaDeVendaId",
                 table: "Itens",
-                column: "NotaVendaId");
+                column: "NotaDeVendaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Itens_ProdutoId",
@@ -257,9 +263,9 @@ namespace RonielDias.Migrations
                 column: "MarcaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TiposPagamentos_NotaVendaId",
+                name: "IX_TiposPagamentos_NotaDeVendaId",
                 table: "TiposPagamentos",
-                column: "NotaVendaId");
+                column: "NotaDeVendaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -54,7 +54,7 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NumeroDoCartao,Bandeira,Id,NomeDoCobrado,InformacoesAdicionais")] PagamentoComCartao pagamentoComCartao)
+        public async Task<IActionResult> Create([Bind("NumeroDoCartao,Bandeira,Id,NomeDoCobrado,CpfDoCobrado,InformacoesAdicionais")] PagamentoComCartao pagamentoComCartao)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NumeroDoCartao,Bandeira,Id,NomeDoCobrado,InformacoesAdicionais")] PagamentoComCartao pagamentoComCartao)
+        public async Task<IActionResult> Edit(int id, [Bind("NumeroDoCartao,Bandeira,Id,NomeDoCobrado,CpfDoCobrado,InformacoesAdicionais")] PagamentoComCartao pagamentoComCartao)
         {
             if (id != pagamentoComCartao.Id)
             {

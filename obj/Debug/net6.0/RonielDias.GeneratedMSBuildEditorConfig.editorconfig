@@ -191,24 +191,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposPagamentos/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NQYWdhbWVudG9zL0NyZWF0ZS5jc2h0bWw=
+[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposDePagamentos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NEZVBhZ2FtZW50b3MvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposPagamentos/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NQYWdhbWVudG9zL0RlbGV0ZS5jc2h0bWw=
+[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposDePagamentos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NEZVBhZ2FtZW50b3MvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposPagamentos/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NQYWdhbWVudG9zL0RldGFpbHMuY3NodG1s
+[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposDePagamentos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NEZVBhZ2FtZW50b3MvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposPagamentos/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NQYWdhbWVudG9zL0VkaXQuY3NodG1s
+[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposDePagamentos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NEZVBhZ2FtZW50b3MvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposPagamentos/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NQYWdhbWVudG9zL0luZGV4LmNzaHRtbA==
+[/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/TiposDePagamentos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NEZVBhZ2FtZW50b3MvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/roniel/Documentos/ifpi/aps 23.2/trabalho final/principal/RonielDias/Views/Transportadoras/Create.cshtml]

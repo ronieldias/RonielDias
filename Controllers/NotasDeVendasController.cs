@@ -34,18 +34,18 @@ namespace RonielDias.Controllers
                 return NotFound();
             }
 
-            var notaVenda = await _context.NotasVendas
+            var notaDeVenda = await _context.NotasVendas
                 .Include(n => n.Cliente)
                 .Include(n => n.Pagamento)
                 .Include(n => n.Transportadora)
                 .Include(n => n.Vendedor)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (notaVenda == null)
+            if (notaDeVenda == null)
             {
                 return NotFound();
             }
 
-            return View(notaVenda);
+            return View(notaDeVenda);
         }
 
         // GET: NotasDeVendas/Create
@@ -63,19 +63,19 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Data,Tipo,ClienteId,VendedorId,TransportadoraId,PagamentoId")] NotaVenda notaVenda)
+        public async Task<IActionResult> Create([Bind("Id,Data,Tipo,ClienteId,VendedorId,TransportadoraId,PagamentoId")] NotaDeVenda notaDeVenda)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(notaVenda);
+                _context.Add(notaDeVenda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", notaVenda.ClienteId);
-            ViewData["PagamentoId"] = new SelectList(_context.Pagamentos, "Id", "Id", notaVenda.PagamentoId);
-            ViewData["TransportadoraId"] = new SelectList(_context.Transportadoras, "Id", "Id", notaVenda.TransportadoraId);
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", notaVenda.VendedorId);
-            return View(notaVenda);
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", notaDeVenda.ClienteId);
+            ViewData["PagamentoId"] = new SelectList(_context.Pagamentos, "Id", "Id", notaDeVenda.PagamentoId);
+            ViewData["TransportadoraId"] = new SelectList(_context.Transportadoras, "Id", "Id", notaDeVenda.TransportadoraId);
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", notaDeVenda.VendedorId);
+            return View(notaDeVenda);
         }
 
         // GET: NotasDeVendas/Edit/5
@@ -86,16 +86,16 @@ namespace RonielDias.Controllers
                 return NotFound();
             }
 
-            var notaVenda = await _context.NotasVendas.FindAsync(id);
-            if (notaVenda == null)
+            var notaDeVenda = await _context.NotasVendas.FindAsync(id);
+            if (notaDeVenda == null)
             {
                 return NotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", notaVenda.ClienteId);
-            ViewData["PagamentoId"] = new SelectList(_context.Pagamentos, "Id", "Id", notaVenda.PagamentoId);
-            ViewData["TransportadoraId"] = new SelectList(_context.Transportadoras, "Id", "Id", notaVenda.TransportadoraId);
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", notaVenda.VendedorId);
-            return View(notaVenda);
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", notaDeVenda.ClienteId);
+            ViewData["PagamentoId"] = new SelectList(_context.Pagamentos, "Id", "Id", notaDeVenda.PagamentoId);
+            ViewData["TransportadoraId"] = new SelectList(_context.Transportadoras, "Id", "Id", notaDeVenda.TransportadoraId);
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", notaDeVenda.VendedorId);
+            return View(notaDeVenda);
         }
 
         // POST: NotasDeVendas/Edit/5
@@ -103,9 +103,9 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Data,Tipo,ClienteId,VendedorId,TransportadoraId,PagamentoId")] NotaVenda notaVenda)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Data,Tipo,ClienteId,VendedorId,TransportadoraId,PagamentoId")] NotaDeVenda notaDeVenda)
         {
-            if (id != notaVenda.Id)
+            if (id != notaDeVenda.Id)
             {
                 return NotFound();
             }
@@ -114,12 +114,12 @@ namespace RonielDias.Controllers
             {
                 try
                 {
-                    _context.Update(notaVenda);
+                    _context.Update(notaDeVenda);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NotaVendaExists(notaVenda.Id))
+                    if (!NotaDeVendaExists(notaDeVenda.Id))
                     {
                         return NotFound();
                     }
@@ -130,11 +130,11 @@ namespace RonielDias.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", notaVenda.ClienteId);
-            ViewData["PagamentoId"] = new SelectList(_context.Pagamentos, "Id", "Id", notaVenda.PagamentoId);
-            ViewData["TransportadoraId"] = new SelectList(_context.Transportadoras, "Id", "Id", notaVenda.TransportadoraId);
-            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", notaVenda.VendedorId);
-            return View(notaVenda);
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "Id", "Id", notaDeVenda.ClienteId);
+            ViewData["PagamentoId"] = new SelectList(_context.Pagamentos, "Id", "Id", notaDeVenda.PagamentoId);
+            ViewData["TransportadoraId"] = new SelectList(_context.Transportadoras, "Id", "Id", notaDeVenda.TransportadoraId);
+            ViewData["VendedorId"] = new SelectList(_context.Vendedores, "Id", "Id", notaDeVenda.VendedorId);
+            return View(notaDeVenda);
         }
 
         // GET: NotasDeVendas/Delete/5
@@ -145,18 +145,18 @@ namespace RonielDias.Controllers
                 return NotFound();
             }
 
-            var notaVenda = await _context.NotasVendas
+            var notaDeVenda = await _context.NotasVendas
                 .Include(n => n.Cliente)
                 .Include(n => n.Pagamento)
                 .Include(n => n.Transportadora)
                 .Include(n => n.Vendedor)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (notaVenda == null)
+            if (notaDeVenda == null)
             {
                 return NotFound();
             }
 
-            return View(notaVenda);
+            return View(notaDeVenda);
         }
 
         // POST: NotasDeVendas/Delete/5
@@ -164,13 +164,13 @@ namespace RonielDias.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var notaVenda = await _context.NotasVendas.FindAsync(id);
-            _context.NotasVendas.Remove(notaVenda);
+            var notaDeVenda = await _context.NotasVendas.FindAsync(id);
+            _context.NotasVendas.Remove(notaDeVenda);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NotaVendaExists(int id)
+        private bool NotaDeVendaExists(int id)
         {
             return _context.NotasVendas.Any(e => e.Id == id);
         }

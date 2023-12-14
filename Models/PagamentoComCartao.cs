@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RonielDias.Models
 {
-    public class PagamentoComCartao : TipoPagamento   
+    public class PagamentoComCartao : TipoDePagamento   
     {
         [Display(Name= "Número do Cartão")]
         public string? NumeroDoCartao {get; set;}

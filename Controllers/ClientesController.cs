@@ -54,7 +54,7 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Cpf,Nascimento")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace RonielDias.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Cpf,Nascimento")] Cliente cliente)
         {
             if (id != cliente.Id)
             {

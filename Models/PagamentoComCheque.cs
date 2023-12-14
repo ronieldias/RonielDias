@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RonielDias.Models
 {
-    public class PagamentoComCheque : TipoPagamento
+    public class PagamentoComCheque : TipoDePagamento
     {   
         [Display(Name= "Numero do Banco")]
         public int Banco {get; set;}

@@ -10,22 +10,22 @@ using RonielDias.Models;
 
 namespace RonielDias.Controllers
 {
-    public class TiposPagamentosController : Controller
+    public class TiposDePagamentosController : Controller
     {
         private readonly MyDbContext _context;
 
-        public TiposPagamentosController(MyDbContext context)
+        public TiposDePagamentosController(MyDbContext context)
         {
             _context = context;
         }
 
-        // GET: TiposPagamentos
+        // GET: TiposDePagamentos
         public async Task<IActionResult> Index()
         {
             return View(await _context.TiposPagamentos.ToListAsync());
         }
 
-        // GET: TiposPagamentos/Details/5
+        // GET: TiposDePagamentos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace RonielDias.Controllers
                 return NotFound();
             }
 
-            var tipoPagamento = await _context.TiposPagamentos
+            var tipoDePagamento = await _context.TiposPagamentos
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tipoPagamento == null)
+            if (tipoDePagamento == null)
             {
                 return NotFound();
             }
 
-            return View(tipoPagamento);
+            return View(tipoDePagamento);
         }
 
-        // GET: TiposPagamentos/Create
+        // GET: TiposDePagamentos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: TiposPagamentos/Create
+        // POST: TiposDePagamentos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NomeDoCobrado,InformacoesAdicionais")] TipoPagamento tipoPagamento)
+        public async Task<IActionResult> Create([Bind("Id,NomeDoCobrado,CpfDoCobrado,InformacoesAdicionais")] TipoDePagamento tipoDePagamento)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tipoPagamento);
+                _context.Add(tipoDePagamento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(tipoPagamento);
+            return View(tipoDePagamento);
         }
 
-        // GET: TiposPagamentos/Edit/5
+        // GET: TiposDePagamentos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace RonielDias.Controllers
                 return NotFound();
             }
 
-            var tipoPagamento = await _context.TiposPagamentos.FindAsync(id);
-            if (tipoPagamento == null)
+            var tipoDePagamento = await _context.TiposPagamentos.FindAsync(id);
+            if (tipoDePagamento == null)
             {
                 return NotFound();
             }
-            return View(tipoPagamento);
+            return View(tipoDePagamento);
         }
 
-        // POST: TiposPagamentos/Edit/5
+        // POST: TiposDePagamentos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NomeDoCobrado,InformacoesAdicionais")] TipoPagamento tipoPagamento)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NomeDoCobrado,CpfDoCobrado,InformacoesAdicionais")] TipoDePagamento tipoDePagamento)
         {
-            if (id != tipoPagamento.Id)
+            if (id != tipoDePagamento.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace RonielDias.Controllers
             {
                 try
                 {
-                    _context.Update(tipoPagamento);
+                    _context.Update(tipoDePagamento);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TipoPagamentoExists(tipoPagamento.Id))
+                    if (!TipoDePagamentoExists(tipoDePagamento.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace RonielDias.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(tipoPagamento);
+            return View(tipoDePagamento);
         }
 
-        // GET: TiposPagamentos/Delete/5
+        // GET: TiposDePagamentos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,28 +124,28 @@ namespace RonielDias.Controllers
                 return NotFound();
             }
 
-            var tipoPagamento = await _context.TiposPagamentos
+            var tipoDePagamento = await _context.TiposPagamentos
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (tipoPagamento == null)
+            if (tipoDePagamento == null)
             {
                 return NotFound();
             }
 
-            return View(tipoPagamento);
+            return View(tipoDePagamento);
         }
 
-        // POST: TiposPagamentos/Delete/5
+        // POST: TiposDePagamentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var tipoPagamento = await _context.TiposPagamentos.FindAsync(id);
-            _context.TiposPagamentos.Remove(tipoPagamento);
+            var tipoDePagamento = await _context.TiposPagamentos.FindAsync(id);
+            _context.TiposPagamentos.Remove(tipoDePagamento);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TipoPagamentoExists(int id)
+        private bool TipoDePagamentoExists(int id)
         {
             return _context.TiposPagamentos.Any(e => e.Id == id);
         }

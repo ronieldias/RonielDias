@@ -9,8 +9,9 @@ namespace RonielDias.Models
 {
     public class Vendedor
     {   
-        [Display(Name = "")]
+        [Display(Name= "Código")]
         public int Id {get; set;}
+        [Display(Name= "Nome Do Vendedor")]
         public string? Nome {get; set;}
     }
 }
